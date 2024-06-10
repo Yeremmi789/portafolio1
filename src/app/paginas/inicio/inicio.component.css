@@ -1,78 +1,90 @@
+
 *{
-  margin: 0;
-  padding: 0;
+  font-family: sans-serif;
 }
 
-
-nav{
-/* display: inline-block; */
+.c-full{
+  width: 100%;
+  height:auto;
   display: flex;
   justify-content: center;
+  background-color: #131312;
 }
 
-
-#cont-master{
-  width: 100%;
-  background-color: red;
-  padding:0 0 0 10px;
-}
-
-nav a{
-  text-decoration: none;
-  padding: 0 30px 0 0;
-}
-
-#separador-nav{
-  width: 30%;
-  display: flex;
-  background: blue;
-  align-items: center;
-}
-
-#cont-master img{
-  width: 20%;
-  padding: 10px 10px 10px 10px;
-}
-
-li{
-  text-decoration: none;
-  list-style: none;
-  display: inline-block;
-}
-ul{
-  display: inline-block;
-  width:auto;
+.c-medium{
+  width: 80%;
   height:auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
+/* Cuerpo de la sección de productos */
+.c-titulo-productos{
+  display: inline-block;
+  width: 100%;
+  background-color: chocolate;
+  margin: 0 10px;
 
-#cont-ul{
-  width: 70%;
+  color: rgb(245, 245, 245);
+  font-size: 18px;
+  font-weight: 400px;
+  line-height: 25.2px;
+}
+
+.c-product{
+  width: 20%;
   height: auto;
-  background: green;
+  margin: 0 10px;
+}
+
+.c-product img {
+  width: 100%;
+  height: auto;
+}
+
+/* Contenedor de cada Producto */
+.info{
+  background-color: #131312;
+  color: #ffff;
+}
+
+.info p{
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: sans-serif;
+}
+
+.precios{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: chartreuse; */
+}
+
+.c-descuento{
+  /* background-color: blue; */
+  width: 50%;
+  display: flex;
+  align-items: center;
+  }
+
+.c-cantidad{
+    /* background-color: yellow; */
+    width: 50%;
+}
+
+.c-cantidad p{
+  font-size: 15px;
+  font-weight: 550;
   display: flex;
   justify-content: end;
-  /* padding: ; */
 }
 
-#cont-ul li{
-  margin: 5px 10px;
-  /* background-color: black; */
-  /* height: 20px; */
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  justify-content: center;
-}
-
-#cont-ul a{
+/* .c-inline{
+  display: block;
   width: 100%;
-  height: 40%;
-  display: flex;
-  align-items: center;
-  padding: 10px 10px;
-}
-#cont-ul a:hover{
-  background-color: orange;
-}
+  background-color: red;
+} */
 

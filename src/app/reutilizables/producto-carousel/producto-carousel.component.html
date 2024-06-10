@@ -1,0 +1,44 @@
+<div class="c-full">
+  <div class="c-medium">
+    <div class="c-titulo-productos">
+      <div style="display: flex; justify-content: space-between;">
+        <p>Destacados de las SUPEROFERTAS ></p>
+        <div>
+          <i class="fa-solid fa-backward" (click)="prev()">Izquierdaa</i>
+          <i class="fa-solid fa-forward" (click)="next()">Derechaaa</i>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+
+    <button (click)="prev()" class="carousel-button prev-button">&lt;</button>
+
+      <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
+        <div class="c-product" *ngFor="let product of products">
+          <div class="c-p-img">
+            <img [src]="product.image" [alt]="product.name" />
+          </div>
+          <div class="info">
+            <p style=" color: #777677; font-size: 9px; line-height: 15px; font-weight: 800;">{{ product.category }}</p>
+            <p style="font-size: 14px;">{{ product.name }}</p>
+            <div class="precios">
+              <div class="c-descuento">
+                <p style="background-color: #0075e5; padding: 6px; border-radius: 4px; font-weight: 700;">{{ product.discount }}</p>
+              </div>
+              <div class="c-cantidad">
+                <p style=" color: #777677; line-height: 15px; text-decoration: line-through;">{{ product.originalPrice }} MXN</p>
+                <p>{{ product.discountedPrice }} MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <button (click)="next()" class="carousel-button next-button">&gt;</button>
+    </div>
+  </div>
+</div>
+

@@ -5,7 +5,8 @@
 .cont-buscador{
   width: 100%;
   height: auto;
-  background-color: rgb(9, 9, 9);
+  /* background-color: rgb(9, 9, 9); */
+  background-color: #121313;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,8 +14,6 @@
 
 .c-buscador-m{
   width: 75%;
-  /* background-color: aquamarine; */
-  /* background-color: rgb(9, 9, 9); */
   display: flex;
   height: 42px;
   padding: 30px;
@@ -60,7 +59,6 @@ a{
   border-radius: 20px;
   padding: 4px 10px 2px 12px;
   border: 0px solid #007bff;
-
 }
 
 /*
