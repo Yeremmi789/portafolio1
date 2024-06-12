@@ -41,7 +41,7 @@ a{
 }
 
 .c-buscador-m input:focus{
-  width: 20%;
+  /* width: 20%; */
   /* Quita el borde azul de focus predeterminado */
   outline: none;
   /* Cambia el color del borde para que sea más obvio */
