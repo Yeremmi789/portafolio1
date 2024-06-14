@@ -2,27 +2,23 @@
   <div class="c-medium">
     <div class="c-titulo-productos">
       <div style="display: flex; justify-content: space-between;">
-        <p>Destacados de las SUPEROFERTAS ></p>
+        <!-- <div style="background-color: red;"> -->
         <div>
-
-
-          <button (click)="prev()" type="button">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg> -->
-            <i class="fa-solid fa-arrow-left"></i>
+          <a href="" class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">Destacados de las SUPEROFERTAS</a>
+          <i class="bi bi-chevron-right"></i>
+        </div>
+        <div>
+          <button (click)="prev()" type="button" class="btn-flechas">
+            <i class="bi bi-chevron-compact-left icon-flecha-producto"></i>
           </button>
-          <!-- <i class="fa-solid fa-backward" (click)="prev()"></i> -->
-          <!-- <i class="fa-solid fa-forward" (click)="next()"></i> -->
-          <button (click)="next()" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+          <button (click)="next()" type="button" class="btn-flechas">
+            <i  class="bi bi-chevron-compact-right icon-flecha-producto"></i>
           </button>
-
         </div>
       </div>
     </div>
 
     <div class="carousel-wrapper">
-
-    <button (click)="prev()" class="carousel-button prev-button">&lt;</button>
 
       <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
         <div class="c-product" *ngFor="let product of products">
@@ -34,7 +30,7 @@
             <p style="font-size: 14px;">{{ product.name }}</p>
             <div class="precios">
               <div class="c-descuento">
-                <p style="background-color: #0075e5; padding: 6px; border-radius: 4px; font-weight: 700;">{{ product.discount }}</p>
+                <p style="background-color: #0075e5; font-size: 10px; padding: 6px; border-radius: 4px; font-weight: 700;">{{ product.discount }}</p>
               </div>
               <div class="c-cantidad">
                 <p style=" color: #777677; line-height: 15px; text-decoration: line-through;">{{ product.originalPrice }} MXN</p>
@@ -43,12 +39,64 @@
             </div>
           </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="c-full">
+  <div class="c-medium">
+    <div class="c-titulo-productos">
+      <div style="display: flex; justify-content: space-between;">
+        <div>
+          <a href="" class="link_t_productoV1" style="letter-spacing: 0.5px; font-weight: 300; display: inline;">Destacados de las ofertas de Epic</a>
+          <i class="bi bi-chevron-right"></i>
+        </div>
+        <div>
+          <button (click)="prev_v2()" type="button" class="btn-flechas">
+            <i class="bi bi-chevron-compact-left icon-flecha-producto"></i>
+          </button>
+          <button (click)="next_v2()" type="button" class="btn-flechas">
+            <i  class="bi bi-chevron-compact-right icon-flecha-producto"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+
+    <!-- <button (click)="anterior()" class="carousel-button prev-button">&lt;</button> -->
+
+      <div class="carousel" [style.transform]="'translateX(' + translateX_v2 + 'px)'">
+        <div class="c-product" *ngFor="let product_v2 of products_v2">
+          <div class="c-p-img">
+            <img [src]="product_v2.image" [alt]="product_v2.name"/>
+          </div>
+          <div class="info">
+            <p style=" color: #777677; font-size: 9px; line-height: 15px; font-weight: 800;">{{ product_v2.category }}</p>
+            <p style="font-size: 14px;">{{ product_v2.name }}</p>
+            <div class="precios">
+              <div class="c-descuento">
+                <p style="background-color: #0075e5; font-size: 10px; padding: 6px; border-radius: 4px; font-weight: 700;">{{ product_v2.discount }}</p>
+              </div>
+              <div class="c-cantidad">
+                <p style=" color: #777677; line-height: 15px; text-decoration: line-through;">{{ product_v2.originalPrice }} MXN</p>
+                <p>{{ product_v2.discountedPrice }} MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
       </div>
 
-      <button (click)="next()" class="carousel-button next-button">&gt;</button>
+      <!-- <button (click)="siguiente()" class="carousel-button next-button">&gt;</button> -->
     </div>
   </div>
 </div>
+
+
 
