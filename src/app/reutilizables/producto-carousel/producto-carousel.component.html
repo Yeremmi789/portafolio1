@@ -1,10 +1,12 @@
+
+
 <div class="c-full">
   <div class="c-medium">
     <div class="c-titulo-productos">
       <div style="display: flex; justify-content: space-between;">
-        <!-- <div style="background-color: red;"> -->
         <div>
-          <a href="" class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">Destacados de las SUPEROFERTAS</a>
+          <!-- <a href="" class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">Destacados de las SUPEROFERTAS</a> -->
+          <a href="" class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">{{destacadosTitulo}}</a>
           <i class="bi bi-chevron-right"></i>
         </div>
         <div>
@@ -21,9 +23,11 @@
     <div class="carousel-wrapper">
 
       <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
-        <div class="c-product" *ngFor="let product of products">
-          <div class="c-p-img">
-            <img [src]="product.image" [alt]="product.name" />
+        <a href="" class="c-product" *ngFor="let product of products" (mouseenter)="onMouseEnter(product)" (mouseleave)="onMouseLeave()">
+          <div class="c-p-img" [ngClass]="{ 'hovered': product === hoveredProduct }">
+            <div class="div-img">
+              <img [src]="product.image" [alt]="product.name" />
+            </div>
           </div>
           <div class="info">
             <p style=" color: #777677; font-size: 9px; line-height: 15px; font-weight: 800;">{{ product.category }}</p>
@@ -38,7 +42,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
 
     </div>
@@ -46,13 +50,13 @@
 </div>
 
 
-
 <div class="c-full">
   <div class="c-medium">
     <div class="c-titulo-productos">
       <div style="display: flex; justify-content: space-between;">
         <div>
-          <a href="" class="link_t_productoV1" style="letter-spacing: 0.5px; font-weight: 300; display: inline;">Destacados de las ofertas de Epic</a>
+          <!-- <a href="" class="link_t_productoV1" style="letter-spacing: 0.5px; font-weight: 300; display: inline;">Destacados de las ofertas de Epic</a> -->
+          <a href="" class="link_t_productoV1" style="letter-spacing: 0.5px; font-weight: 300; display: inline;">{{destacadosTitulo2}}</a>
           <i class="bi bi-chevron-right"></i>
         </div>
         <div>
@@ -100,3 +104,54 @@
 
 
 
+
+
+<!-- Carousel antes de los  ID -->
+
+<!-- <div class="c-full">
+  <div class="c-medium">
+    <div class="c-titulo-productos">
+      <div style="display: flex; justify-content: space-between;">
+        <div>
+          <a href="" class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">Destacados de las SUPEROFERTAS</a>
+          <i class="bi bi-chevron-right"></i>
+        </div>
+        <div>
+          <button (click)="prev()" type="button" class="btn-flechas">
+            <i class="bi bi-chevron-compact-left icon-flecha-producto"></i>
+          </button>
+          <button (click)="next()" type="button" class="btn-flechas">
+            <i  class="bi bi-chevron-compact-right icon-flecha-producto"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+
+      <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
+        <a href="" class="c-product" *ngFor="let product of products">
+          <div class="c-p-img">
+            <div class="div-img">
+              <img [src]="product.image" [alt]="product.name" />
+            </div>
+          </div>
+          <div class="info">
+            <p style=" color: #777677; font-size: 9px; line-height: 15px; font-weight: 800;">{{ product.category }}</p>
+            <p style="font-size: 14px;">{{ product.name }}</p>
+            <div class="precios">
+              <div class="c-descuento">
+                <p style="background-color: #0075e5; font-size: 10px; padding: 6px; border-radius: 4px; font-weight: 700;">{{ product.discount }}</p>
+              </div>
+              <div class="c-cantidad">
+                <p style=" color: #777677; line-height: 15px; text-decoration: line-through;">{{ product.originalPrice }} MXN</p>
+                <p>{{ product.discountedPrice }} MXN</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div> -->

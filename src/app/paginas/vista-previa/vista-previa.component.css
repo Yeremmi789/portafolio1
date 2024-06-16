@@ -1,0 +1,39 @@
+* {
+  font-family: sans-serif;
+
+  /* background-color: #082d31; */
+}
+
+.c-full {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* background-color: #121313; */
+  background-color: #082d31;
+}
+
+.c-medium {
+  width: 78%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tituloProducto{
+  color: #ffff;
+
+}
+
+.c-categoria{
+  background-color: orange;
+  color: #ffff;
+  display: flex;
+  width: 100%;
+}
+
+.c-categoria p {
+  margin-right: 50px;
+}
+
+
