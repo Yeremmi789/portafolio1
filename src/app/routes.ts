@@ -12,8 +12,10 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent, title: 'Pagina de inicio' },
   { path: 'detalles', component: DetailsComponent, title: 'Pagina de detalles'  },
   { path: 'librerias', component: LibreriasComponent, title: 'Prueba'  },
-  { path: 'preview', component: VistaPreviaComponent, title: 'Previa'},
-  { path: 'productos', component: ProductosComponent, title: 'Juegos'}
+  { path: 'preview/:id', component: VistaPreviaComponent, title: 'Previa'},
+  { path: 'productos', component: ProductosComponent, title: 'Juegos'},
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: '**', redirectTo: '/inicio' } // Ruta de fallback
 ];
 
 export default routes;

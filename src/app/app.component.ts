@@ -11,6 +11,8 @@ import {BuscadorComponent} from './reutilizables/buscador/buscador.component';
 import { GalleryModule, GalleryItem, ImageItem, GalleryComponent } from 'ng-gallery';
 import { ProductoCarouselComponent } from './reutilizables/producto-carousel/producto-carousel.component';
 import { CarouselV1Component } from './reutilizables/carousel-v1/carousel-v1.component';
+import { FooterComponent } from './reutilizables/footer/footer.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +26,7 @@ import { CarouselV1Component } from './reutilizables/carousel-v1/carousel-v1.com
     ProductoCarouselComponent,
 
     CarouselV1Component, //solo para tener una plantilla v1
+    FooterComponent,
   ],
   templateUrl: './app.component.html',
   // template: `<h1> HOLALALALAL <h1>`, // Para colocar directamente la estructura del html aquí
@@ -64,7 +67,9 @@ export class AppComponent implements OnInit{
 @NgModule({
   imports: [
     InicioComponent,
-    RouterModule,
+    RouterModule.forRoot([]),
+    BrowserModule,
+
   ],
 })
 

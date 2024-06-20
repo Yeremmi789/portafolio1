@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { CommonModule, NgClass, NgFor, NgStyle } from '@angular/common';  // Importar CommonModule
 import { BrowserModule } from '@angular/platform-browser';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,10 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     NgStyle,
     NgFor,
-    NgClass
+    NgClass,
+    RouterOutlet,
+    RouterLink,
+    // BrowserModule,
   ],
   templateUrl: './producto-carousel.component.html',
   styleUrl: './producto-carousel.component.css'
@@ -199,6 +203,7 @@ export class ProductoCarouselComponent implements OnInit{
 
   products_v2 = [
     {
+      id:11,
       name: 'The Callisto Protocol',
       description: 'Descripción del Producto 1',
       image: 'https://cdn1.epicgames.com/offer/6b0541b5d9aa476cbf407643ab3b1d7d/EGS_TheCallistoProtocol_StrikingDistanceStudios_S2_1200x1600-1e31eacc92833279f5b7a8d07cd3826c?h=480&quality=medium&resize=1&w=360',
@@ -209,6 +214,7 @@ export class ProductoCarouselComponent implements OnInit{
       discountedPrice: '1200'
     },
     {
+      id:12,
       name: 'Fallout: New Vegas',
       description: 'Descripción del Producto 1',
       image: 'https://cdn1.epicgames.com/offer/3428aaab2c674c98b3acb789dcfaa548/EGS_FalloutNewVegas_ObsidianEntertainment_S2_1200x1600-866fe8b8f56e2e7bb862c49bf0627b9a?h=480&quality=medium&resize=1&w=360',
@@ -219,6 +225,7 @@ export class ProductoCarouselComponent implements OnInit{
       discountedPrice: '179'
     },
     {
+      id:13,
       name: 'Shadow of the Tomb Raider: Definitive Edition',
       description: 'Descripción del Producto 1',
       image: 'https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=480&quality=medium&resize=1&w=360',
@@ -229,6 +236,7 @@ export class ProductoCarouselComponent implements OnInit{
       discountedPrice: '219.80'
     },
     {
+      id:14,
       name: 'Mount & Blade II: Bannerlord',
       description: 'Descripción del Producto 1',
       image: 'https://cdn1.epicgames.com/offer/aeac94c7a11048758064b82f8f8d20ed/EGS_MountBladeIIBannerlord_TaleWorldsEntertainment_S2_1200x1600-67b826955ba37d7d6c33ec578aaa2d54?h=480&quality=medium&resize=1&w=360',
@@ -239,6 +247,7 @@ export class ProductoCarouselComponent implements OnInit{
       discountedPrice: '899,99'
     },
     {
+      id:15,
       name: 'Gas Station Simulator',
       description: 'Descripción del Producto 1',
       image: 'https://cdn1.epicgames.com/spt-assets/e48463d2c1fc4e17a3860fbbc8e54edc/gas-station-simulator-6na58.jpg?h=480&quality=medium&resize=1&w=360',
@@ -249,6 +258,7 @@ export class ProductoCarouselComponent implements OnInit{
       discountedPrice: '179,99'
     },
     {
+      id:16,
       name: 'Shadow of the Tomb Raider: Definitive Edition',
       description: 'Descripción del Producto 1',
       image: 'https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=480&quality=medium&resize=1&w=360',
@@ -286,5 +296,17 @@ export class ProductoCarouselComponent implements OnInit{
     this.translateX = -this.currentIndex * (213 * 5); // 400 (ancho del item) + 20 (márgenes)
   }
 
+
+
+
+  // Obtener el ID del producto seleccionado:
+
+  constructor(private router:Router){
+
+  }
+
+  detalle_Producto(detalles_id:number){
+    this.router.navigate(['/preview', detalles_id]);
+  }
 
 }

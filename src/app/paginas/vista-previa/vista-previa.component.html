@@ -1,6 +1,72 @@
 <div class="c-full">
   <div class="c-medium">
     <div class="tituloProducto">
+      <h1>{{productoSeleccionado.name}}</h1>
+    </div>
+    <div class="c-categoria">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>Buenas batallas contra jefes</p>
+      <p>Ideal para principiantes</p>
+    </div>
+    <div class="c-juego">
+      <div class="c-imgDescripcion">
+        <div class="c-imagenes">
+           <app-juego-carousel></app-juego-carousel>
+        </div>
+        <div class="c-descripcion">
+
+          <p>En Shadow of the Tomb Raider: Definitive Edition, vive el capítulo final de la historia sobre el origen de Lara, en el que se convierte en la saqueadora de tumbas que está destinada a ser.</p>
+
+
+          <p>
+            Shadow of the Tomb Raider: Definitive Edition
+            Mientras Lara Croft trata de salvar el mundo de un apocalipsis maya, deberá convertirse en la saqueadora de tumbas que está destinada a ser.
+            En Shadow of the Tomb Raider: Definitive Edition, vive el capítulo final de la historia sobre el origen de Lara, en el que se convierte en la saqueadora de tumbas que está destinada a ser. Esta edición incluye el juego básico y siete tumbas de desafío de contenido descargable, así como armas, atuendos y habilidades descargables. Shadow of the Tomb Raider: Definitive Edition es la opción definitiva para vivir el momento que marcó la vida de Lara.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="c-info" style="position: sticky; top: 0;">
+        <div class="logoJuego" >
+          <!-- <img
+            src="https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-ic1-400x400-1a101c6adcf1-400x132-564f4e1cc624.png?h=270&quality=medium&resize=1&w=480"
+            alt=""> -->
+          <img
+            src="{{productoSeleccionado.logoJuego}}">
+        </div>
+
+        <div class="precioJuego">
+          <p class="etiquetaBase">JUEGO BASE</p>
+
+          <div style="display: flex;">
+            <p class="c-descuento">{{productoSeleccionado.discount}}</p>
+            <p style="text-decoration: line-through; color: #8a9a9c;">{{productoSeleccionado.discountedPrice}}</p>
+            <p>208 MXN</p>
+          </div>
+          <p style="font-size: 12px;">La oferta finaliza el 27/06/2024 a las 9:00</p>
+          <button class="btn-compras btn-comprar" type="button" >COMPRAR AHORA</button>
+          <button class="btn-compras btn-addCarrito" type="button" >AÑADIR AL CARRITO</button>
+          <button class="btn-compras btn-addDeseos" type="button"><i style="font-size: 18px;" class="bi bi-plus-circle"></i> A LA LISTA DE DESEOS</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="c-valoracion">
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="c-full">
+  <div class="c-medium">
+    <div class="tituloProducto">
       <h1>Shadow of the Tomb Raider: Definitive Edition</h1>
     </div>
     <div class="c-categoria">
@@ -9,20 +75,52 @@
       <p>Ideal para principiantes</p>
     </div>
     <div class="c-juego">
-      <!-- Video e imagenes -->
-       <div class="c-imagenes">
-        <!-- Aqui puedo implementar el carousel -->
-         <img src="https://cdn1.epicgames.com/offer/4b5461ca8d1c488787b5200b420de066/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-s4-1200x1600-7ee40d6fa744_1200x1600-950cdb624cc75d04fe3c8c0b62ce98de?h=480&quality=medium&resize=1&w=360" alt="">
-       </div>
-       <div class="c-descripcion">
-       </div>
-    </div>
-    <div class="c-info">
-      <!-- Precio del juego, descuentos, BTN comprar, carrito, requerimientos etc. -->
+      <div class="c-imgDescripcion">
+        <div class="c-imagenes">
+           <app-juego-carousel></app-juego-carousel>
+        </div>
+        <div class="c-descripcion">
+
+          <p>En Shadow of the Tomb Raider: Definitive Edition, vive el capítulo final de la historia sobre el origen de Lara, en el que se convierte en la saqueadora de tumbas que está destinada a ser.</p>
+
+
+          <p>
+            Shadow of the Tomb Raider: Definitive Edition
+            Mientras Lara Croft trata de salvar el mundo de un apocalipsis maya, deberá convertirse en la saqueadora de tumbas que está destinada a ser.
+            En Shadow of the Tomb Raider: Definitive Edition, vive el capítulo final de la historia sobre el origen de Lara, en el que se convierte en la saqueadora de tumbas que está destinada a ser. Esta edición incluye el juego básico y siete tumbas de desafío de contenido descargable, así como armas, atuendos y habilidades descargables. Shadow of the Tomb Raider: Definitive Edition es la opción definitiva para vivir el momento que marcó la vida de Lara.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="c-info" style="position: sticky; top: 0;">
+        <div class="logoJuego" >
+          <img
+            src="https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-ic1-400x400-1a101c6adcf1-400x132-564f4e1cc624.png?h=270&quality=medium&resize=1&w=480"
+            alt="">
+        </div>
+
+        <div class="precioJuego">
+          <p class="etiquetaBase">JUEGO BASE</p>
+
+          <div style="display: flex;">
+            <p class="c-descuento">-75%</p>
+            <p style="text-decoration: line-through; color: #8a9a9c;">832 MXN</p>
+            <p>208 MXN</p>
+          </div>
+          <p style="font-size: 12px;">La oferta finaliza el 27/06/2024 a las 9:00</p>
+          <button class="btn-compras btn-comprar" type="button" >COMPRAR AHORA</button>
+          <button class="btn-compras btn-addCarrito" type="button" >AÑADIR AL CARRITO</button>
+          <button class="btn-compras btn-addDeseos" type="button"><i style="font-size: 18px;" class="bi bi-plus-circle"></i> A LA LISTA DE DESEOS</button>
+        </div>
+      </div>
+
     </div>
 
+
     <div class="c-valoracion">
-      <!-- Aqui se pone la valoracion del juego otravez y un resumen de los requerimientos del juego -->
+
     </div>
   </div>
-</div>
+</div> -->
+

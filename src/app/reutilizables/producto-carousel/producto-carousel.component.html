@@ -23,7 +23,7 @@
     <div class="carousel-wrapper">
 
       <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
-        <a href="" class="c-product" *ngFor="let product of products" (mouseenter)="onMouseEnter(product)" (mouseleave)="onMouseLeave()">
+        <a (click)="detalle_Producto(product.id)" class="c-product" *ngFor="let product of products" (mouseenter)="onMouseEnter(product)" (mouseleave)="onMouseLeave()">
           <div class="c-p-img" [ngClass]="{ 'hovered': product === hoveredProduct }">
             <div class="div-img">
               <img [src]="product.image" [alt]="product.name" />

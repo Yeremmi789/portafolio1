@@ -13,7 +13,8 @@
 }
 
 .c-buscador-m{
-  width: 75%;
+  /* width: 75%; */
+  width: 79%;
   display: flex;
   height: 42px;
   padding: 30px;
