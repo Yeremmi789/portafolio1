@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { CommonModule, NgClass, NgFor, NgStyle } from '@angular/common';  // Importar CommonModule
+import { CommonModule, NgClass, NgFor, NgIf, NgStyle } from '@angular/common';  // Importar CommonModule
 import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
@@ -14,6 +14,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
     NgClass,
     RouterOutlet,
     RouterLink,
+    NgIf,
     // BrowserModule,
   ],
   templateUrl: './producto-carousel.component.html',
@@ -38,6 +39,12 @@ export class ProductoCarouselComponent implements OnInit{
   }
 
   hoveredProduct: any; // Propiedad para almacenar el producto sobre el cual está el mouse
+  selectedProduct: any; // Propiedad para almacenar el producto seleccionado
+
+  onProductClick(product: any) {
+    this.selectedProduct = product;
+  }
+
 
   onMouseEnter(product: any) {
     this.hoveredProduct = product;

@@ -3,7 +3,7 @@
   font-family: sans-serif;
 }
 
-.c-full{
+/* .c-full{
   width: 100%;
   height:auto;
   display: flex;
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
+} */
 
 /* Cuerpo de la sección de productos */
 .c-titulo-productos{

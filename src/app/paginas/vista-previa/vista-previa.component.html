@@ -1,4 +1,4 @@
-<div class="c-full">
+<div class="c-full" [style.background-color]="colorFondos">
   <div class="c-medium">
     <div class="tituloProducto">
       <h1>{{productoSeleccionado.name}}</h1>
@@ -54,9 +54,56 @@
     </div>
 
 
-    <div class="c-valoracion">
+    <div class="c-valoracion" style="padding-top: 50px;">
+      <h1>Seccion de pruebas Dinamicas con TypeScript :D</h1>
+      <div #elementoContenedorDinamico class="mi-clase-css">
+      </div>
+
+    <button (click)="agregarElemento('Elemento 1')">Agregar elemento</button>
+    <button (click)="agregarElemento('Elemento 2')">Agregar otro elemento</button>
 
     </div>
+  </div>
+</div>
+
+<div class="cont-padre">
+  <div class="contenedor">
+      <hr>
+      <div class="product-reviews">
+          <h3>Comentarios</h3>
+          <div class="review">
+              <div class="review-header">
+                  <p class="review-user">Usuario 1</p>
+                  <p class="review-rating">⭐️⭐️⭐️⭐️⭐️</p>
+              </div>
+              <p class="review-text">Excelente producto. Muy satisfecho.</p>
+              <div class="btnResponsivo">
+                  <button id="btn-verde" class="like-button">👍</button>
+                  <button id="btn-rojo" class="dislike-button">👎</button>
+              </div>
+          </div>
+          <div class="review">
+              <div class="review-header">
+                  <p class="review-user">Usuario 2</p>
+                  <p class="review-rating">⭐️⭐️⭐️</p>
+              </div>
+              <p class="review-text">Buen producto, pero podría mejorar en...</p>
+              <div class="btnResponsivo">
+                  <button id="btn-verde" class="like-button">👍</button>
+                  <button id="btn-rojo" class="dislike-button">👎</button>
+              </div>
+          </div>
+      </div>
+      <hr>
+      <div class="product-reviews">
+          <h4>Comenta que te pareció el producto</h4>
+          <div class="review">
+              <div class="review-header">
+                  <textarea name="" class="cont_textarea"  style="width: 100%; padding: 20px; height: 120px;" placeholder="Escribe algo :D"></textarea>
+              </div>
+
+          </div>
+      </div>
   </div>
 </div>
 

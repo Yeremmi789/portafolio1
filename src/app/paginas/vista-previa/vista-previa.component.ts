@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild, viewChild } from '@angular/core';
 import { ProductoCarouselComponent } from '../../reutilizables/producto-carousel/producto-carousel.component';
 import { LibreriasComponent } from '../librerias/librerias.component';
 import { JuegoCarouselComponent } from '../../reutilizables/juego-carousel/juego-carousel.component';
@@ -23,21 +23,45 @@ export class VistaPreviaComponent implements OnInit{
   constructor(
     private router:Router,
     private rou:ActivatedRoute, //Obtener la info del producto atraves del ID
+    private el:ElementRef,
+    private renderer2:Renderer2,
   ){
 
   }
 
   datos:any;
   productoSeleccionado:any; //Definir el tipo de dato de cada producto
+  colorFondos:any;
+
+  clase_cFull = "c-full";
 
 
   ngOnInit(): void {
     this.rou.params.subscribe( (parametro) => {
       const prod_ID = +parametro['id'];
       this.productoSeleccionado = this.obtenerProductoPorId(prod_ID);
+
+      if(this.productoSeleccionado){
+        // this.el.nativeElement.backgroundColor = this.productoSeleccionado.colorFondo;
+        this.colorFondos = this.productoSeleccionado.colorFondo;
+      }
+
     });
 
   }
+
+// Prueba de añadir elementos al html desde TypeScript
+
+@ViewChild('elementoContenedorDinamico') elementoContenedorDinamico:any;
+
+agregarElemento(textoElemento: string) {
+  const nuevoElemento = this.renderer2.createElement('p');
+  const textoNodo = this.renderer2.createText(textoElemento);
+  this.renderer2.appendChild(nuevoElemento, textoNodo);
+  this.renderer2.appendChild(this.elementoContenedorDinamico.nativeElement, nuevoElemento);
+}
+  // Prueba de añadir elementos al html desde TypeScript
+
 
 
   obtenerProductoPorId(id: number): any {
@@ -65,7 +89,8 @@ export class VistaPreviaComponent implements OnInit{
       discountedPrice: '219.80',
       // logoJuego: 'assets/carousel-juegos/6lara.jpg'
       // logoJuego: 'assets/logos/laraLogo.jpg'
-      logoJuego: 'https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-ic1-400x400-1a101c6adcf1-400x132-564f4e1cc624.png?h=270&quality=medium&resize=1&w=480'
+      logoJuego: 'https://cdn2.unrealengine.com/egs-shadowofthetombraiderdefinitiveedition-eidosmontralcrystaldynamicsnixxessoftware-ic1-400x400-1a101c6adcf1-400x132-564f4e1cc624.png?h=270&quality=medium&resize=1&w=480',
+      colorFondo: '#082d31'
     },
     {
       id: 2,
@@ -77,7 +102,8 @@ export class VistaPreviaComponent implements OnInit{
       discount: '-50 %',
       originalPrice: '599',
       discountedPrice: '219.80',
-      logoJuego: 'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_IC1-625x625-38ae1bca6b89370d01ac3ed3a17daf7dd004f9f5.png?h=270&quality=medium&resize=1&w=480'
+      logoJuego: 'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_IC1-625x625-38ae1bca6b89370d01ac3ed3a17daf7dd004f9f5.png?h=270&quality=medium&resize=1&w=480',
+      colorFondo: '#000000'
     },
     {
       id: 3,
@@ -89,7 +115,8 @@ export class VistaPreviaComponent implements OnInit{
       discount: '-50 %',
       originalPrice: '599',
       discountedPrice: '219.80',
-      logoJuego: 'assets/redLogo.avif'
+      logoJuego: 'assets/redLogo.avif',
+      colorFondo: 'blue'
     },
     {
       id: 4,
@@ -101,7 +128,8 @@ export class VistaPreviaComponent implements OnInit{
       discount: '-50 %',
       originalPrice: '599',
       discountedPrice: '219.80',
-      logoJuego: 'assets/redLogo.avif'
+      logoJuego: 'assets/redLogo.avif',
+      colorFondo: 'green'
     },
     {
       id: 5,
@@ -113,7 +141,8 @@ export class VistaPreviaComponent implements OnInit{
       discount: '-50 %',
       originalPrice: '599',
       discountedPrice: '219.80',
-      logoJuego: 'assets/redLogo.avif'
+      logoJuego: 'assets/redLogo.avif',
+      colorFondo: 'red'
     },
 
 

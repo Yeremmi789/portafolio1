@@ -5,8 +5,7 @@
     <div class="c-titulo-productos">
       <div style="display: flex; justify-content: space-between;">
         <div>
-          <!-- <a href="" class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">Destacados de las SUPEROFERTAS</a> -->
-          <a href="" class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">{{destacadosTitulo}}</a>
+          <a class="link_t_productoV1" style="letter-spacing: 1px; display: inline;">{{destacadosTitulo}}</a>
           <i class="bi bi-chevron-right"></i>
         </div>
         <div>
@@ -22,12 +21,23 @@
 
     <div class="carousel-wrapper">
 
+      <!-- Mensaje condicional fuera del *ngFor -->
+      <div *ngIf="selectedProduct" class="click-message">
+        Haz clic para ver detalles
+      </div>
+
       <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
-        <a (click)="detalle_Producto(product.id)" class="c-product" *ngFor="let product of products" (mouseenter)="onMouseEnter(product)" (mouseleave)="onMouseLeave()">
+        <a  (click)="detalle_Producto(product.id)" class="c-product" *ngFor="let product of products" (mouseenter)="onMouseEnter(product)" (mouseleave)="onMouseLeave()">
+          <a href="" style="z-index: 20;">Añadir</a>
           <div class="c-p-img" [ngClass]="{ 'hovered': product === hoveredProduct }">
             <div class="div-img">
               <img [src]="product.image" [alt]="product.name" />
             </div>
+
+            <!-- <div *ngIf="product === hoveredProduct" class="hover-message mensaje_mouse">
+              Haz clic para ver detalles
+            </div> -->
+
           </div>
           <div class="info">
             <p style=" color: #777677; font-size: 9px; line-height: 15px; font-weight: 800;">{{ product.category }}</p>
@@ -56,7 +66,7 @@
       <div style="display: flex; justify-content: space-between;">
         <div>
           <!-- <a href="" class="link_t_productoV1" style="letter-spacing: 0.5px; font-weight: 300; display: inline;">Destacados de las ofertas de Epic</a> -->
-          <a href="" class="link_t_productoV1" style="letter-spacing: 0.5px; font-weight: 300; display: inline;">{{destacadosTitulo2}}</a>
+          <a class="link_t_productoV1" style="letter-spacing: 0.5px; font-weight: 300; display: inline;">{{destacadosTitulo2}}</a>
           <i class="bi bi-chevron-right"></i>
         </div>
         <div>

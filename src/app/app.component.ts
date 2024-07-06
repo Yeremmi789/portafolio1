@@ -1,8 +1,8 @@
 import { Component, NgModule, OnInit, ViewChild  } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { InicioComponent } from './paginas/inicio/inicio.component';
-import { NgOptimizedImage } from '@angular/common';
+import { NgIf, NgOptimizedImage } from '@angular/common';
 
 // Importando componentes para reutilizarlos
 import {BuscadorComponent} from './reutilizables/buscador/buscador.component';
@@ -27,6 +27,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
     CarouselV1Component, //solo para tener una plantilla v1
     FooterComponent,
+
+    NgIf
   ],
   templateUrl: './app.component.html',
   // template: `<h1> HOLALALALAL <h1>`, // Para colocar directamente la estructura del html aquí
@@ -41,26 +43,49 @@ import { BrowserModule } from '@angular/platform-browser';
 export class AppComponent implements OnInit{
   title = 'portafolio1';
 
+  mostrarBusquedaComponent: boolean = true;
+  constructor(
+    private ruta:Router
+  ){  }
+  // Mostrar u ocultar el componente de busqueda dependiendo el módulo
+
   @ViewChild(GalleryComponent) gallery!: GalleryComponent;
 
   items: ImageItem[] = [];
 
   ngOnInit() {
 
-    this.items = [
-      new ImageItem({ src: 'assets/carousel/c1-1.jpeg', thumb: 'assets/carousel/c1-1.jpeg' }),
-      new ImageItem({ src: 'assets/carousel/c1-2.jpg', thumb: 'assets/carousel/c1-2.jpg' }),
-      new ImageItem({ src: 'assets/carousel/c1-3.jpg', thumb: 'assets/carousel/c1-3.jpg' }),
-    ];
+    this.ruta.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.verif_rutaActual();
+      }
+
+      // if (event instanceof NavigationEnd) {
+      //   this.verif_rutaLogin();
+      // }
+
+    });
 
 
-    // // Opción adicional para cargar los elementos en la galería
-    // if (this.gallery) {
-    //   this.gallery.load(this.items);
-    // }
+    // this.items = [
+    //   new ImageItem({ src: 'assets/carousel/c1-1.jpeg', thumb: 'assets/carousel/c1-1.jpeg' }),
+    //   new ImageItem({ src: 'assets/carousel/c1-2.jpg', thumb: 'assets/carousel/c1-2.jpg' }),
+    //   new ImageItem({ src: 'assets/carousel/c1-3.jpg', thumb: 'assets/carousel/c1-3.jpg' }),
+    // ];
 
 
   }
+
+  verif_rutaActual() {
+    const actualURL = this.ruta.url;
+    this.mostrarBusquedaComponent = !['/registro','/login'].includes(actualURL);
+  }
+
+  // verif_rutaLogin() {
+  //   const actualURL = this.ruta.url;
+  //   this.mostrarBusquedaComponent = !['/login'].includes(actualURL);
+  // }
+
 
 }
 
