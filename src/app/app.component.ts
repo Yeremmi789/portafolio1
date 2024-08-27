@@ -14,6 +14,9 @@ import { CarouselV1Component } from './reutilizables/carousel-v1/carousel-v1.com
 import { FooterComponent } from './reutilizables/footer/footer.component';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FaIconComponent, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faHeartCrack } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -43,11 +46,11 @@ import { BrowserModule } from '@angular/platform-browser';
 export class AppComponent implements OnInit{
   title = 'portafolio1';
 
-  mostrarBusquedaComponent: boolean = true;
+  mostrarBusquedaComponent: boolean = true; //#1
   constructor(
     private ruta:Router
   ){  }
-  // Mostrar u ocultar el componente de busqueda dependiendo el módulo
+  // Mostrar u ocultar el componente de busqueda dependiendo el módulo - #1 #2 #3
 
   @ViewChild(GalleryComponent) gallery!: GalleryComponent;
 
@@ -55,9 +58,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
 
-    this.ruta.events.subscribe(event => {
+    this.ruta.events.subscribe(event => { //#3
       if (event instanceof NavigationEnd) {
         this.verif_rutaActual();
+        // console.log("Valor de NavigationEnd: ", NavigationEnd);
       }
 
       // if (event instanceof NavigationEnd) {
@@ -76,15 +80,12 @@ export class AppComponent implements OnInit{
 
   }
 
-  verif_rutaActual() {
+  verif_rutaActual() { //#2
     const actualURL = this.ruta.url;
-    this.mostrarBusquedaComponent = !['/registro','/login'].includes(actualURL);
+    this.mostrarBusquedaComponent = !['/registro','/login','/inicio'].includes(actualURL);
+    console.log(actualURL); // esto imprime toda la ruta actual, sin tomar encuenta "localhost:4200 ó el servidor"
+    // console.log( this.mostrarBusquedaComponent);
   }
-
-  // verif_rutaLogin() {
-  //   const actualURL = this.ruta.url;
-  //   this.mostrarBusquedaComponent = !['/login'].includes(actualURL);
-  // }
 
 
 }
@@ -94,7 +95,7 @@ export class AppComponent implements OnInit{
     InicioComponent,
     RouterModule.forRoot([]),
     BrowserModule,
-
+    FontAwesomeModule
   ],
 })
 

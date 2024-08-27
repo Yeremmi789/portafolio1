@@ -8,6 +8,9 @@ import { VistaPreviaComponent } from './paginas/vista-previa/vista-previa.compon
 import { ProductosComponent } from './paginas/productos/productos.component';
 import { RegistroComponent } from './paginas/registro/registro.component';
 import { LoginComponent } from './paginas/login/login.component';
+import { CategoriasComponent } from './paginas/categorias/categorias.component';
+import { VistaCategoriaComponent } from './paginas/vista-categoria/vista-categoria.component';
+import { NotasPendientesComponent } from './interfaces/notas-pendientes/notas-pendientes.component';
 
 
 const routes: Routes = [
@@ -18,6 +21,21 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent, title: 'Juegos'},
   { path: 'registro', component: RegistroComponent, title: 'Registrarme'},
   { path: 'login', component: LoginComponent, title: 'Ingresar'},
+
+  { path: 'Pendientes', component: NotasPendientesComponent, title: 'Pendientes'},
+
+  { path: 'explorar', component: CategoriasComponent, title: 'Explorar'},
+  { path: 'explorando',
+    children:[
+      {
+        path:'categoria/:categoria', component: VistaCategoriaComponent, title:'Explorando Categoría',
+        // path:'categoria', component: VistaCategoriaComponent, title:'Explorando Categoría',
+      },
+      {
+        path: 'categoria/:categoria/detalles/:id', component: VistaPreviaComponent, title: 'VistaJuego',
+      }
+    ]
+  },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: '**', redirectTo: '/inicio' } // Ruta de fallback
 ];

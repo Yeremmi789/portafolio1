@@ -63,3 +63,13 @@
   font-size: 16px;
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
+
+
+/* FUENTES INSTALADAS*/
+
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('/assets/fuentes/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+}

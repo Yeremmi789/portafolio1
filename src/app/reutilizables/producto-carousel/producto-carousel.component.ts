@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, NgClass, NgFor, NgIf, NgStyle } from '@angular/common';  // Importar CommonModule
 import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { LocalstorageBasicService } from '../../servicios/localstorage-basic.service';
 
 
 @Component({
@@ -22,6 +23,11 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 })
 export class ProductoCarouselComponent implements OnInit{
 
+  constructor(
+    private router:Router,
+    private localStorage:LocalstorageBasicService
+  ){
+  }
 
   ngOnInit() {
     this.calculateCarouselWidth();
@@ -306,14 +312,13 @@ export class ProductoCarouselComponent implements OnInit{
 
 
 
-  // Obtener el ID del producto seleccionado:
-
-  constructor(private router:Router){
-
-  }
+ 
 
   detalle_Producto(detalles_id:number){
+  // detalle_Producto(detalles_id:string){
     this.router.navigate(['/preview', detalles_id]);
+
+    // this.localStorage.guardarItem('');
   }
 
 }

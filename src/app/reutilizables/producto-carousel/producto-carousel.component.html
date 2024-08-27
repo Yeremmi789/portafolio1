@@ -28,6 +28,7 @@
 
       <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
         <a  (click)="detalle_Producto(product.id)" class="c-product" *ngFor="let product of products" (mouseenter)="onMouseEnter(product)" (mouseleave)="onMouseLeave()">
+        <!-- <a  (click)="detalle_Producto(product.name)" class="c-product" *ngFor="let product of products" (mouseenter)="onMouseEnter(product)" (mouseleave)="onMouseLeave()"> -->
           <a href="" style="z-index: 20;">Añadir</a>
           <div class="c-p-img" [ngClass]="{ 'hovered': product === hoveredProduct }">
             <div class="div-img">
